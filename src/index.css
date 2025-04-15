@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@layer components {
+    .nav-link {
+      @apply text-black hover:text-[#028478] transition-colors;
+    }
+  }
+
+  @keyframes backgroundAnimation {
+    0% {
+      background-color: #D0E3E2;
+    }
+    50% {
+      background-color: #CBDFDE;
+    }
+    100% {
+      background-color: #DFEDEC;
+    }
+  }
+  
+  .bg-gradient-animation {
+    animation: backgroundAnimation 1s ease infinite;
+    background: linear-gradient(to right, #D0E3E2, #CBDFDE, #DFEDEC);
+    background-size: 400% 400%;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+  
+  .fade-out {
+    animation: fadeOut 5s ease-out forwards;
+  }
+  
+  
+  .font-vietnam-bold {
+    font-family: "Be Vietnam Pro", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .font-cinzel-bold {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .font-inter1 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .font-inter2 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .font-inter3 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .font-inter4 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
