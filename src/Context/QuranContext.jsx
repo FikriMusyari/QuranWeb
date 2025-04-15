@@ -130,7 +130,7 @@ export const QuranProvider = ({ children }) => {
 
     const TranslationList = async () => {
       try {
-        const res = await fetch("http://api.alquran.cloud/v1/quran/en.asad");
+        const res = await fetch("https://api.alquran.cloud/v1/quran/en.asad");
         const data = await res.json();
         const allverse = data.data.surahs.reduce((acc, surah) => {
           return acc.concat(surah.ayahs);
