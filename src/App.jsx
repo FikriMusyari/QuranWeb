@@ -14,6 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:surahId" element={<QuranReader />} />
+        <Route path="/juz/:juzId" element={<QuranReader />} />
+        <Route path="/page/:pageId" element={<QuranReader />} />
       </Routes>
       </QuranProvider>
     </Router>

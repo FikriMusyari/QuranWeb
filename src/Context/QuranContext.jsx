@@ -26,7 +26,7 @@ export const QuranProvider = ({ children }) => {
 
   const fetchPageById = async (id) => {
     try {
-      const res = await fetch(`https://api.quran.com/api/v4//verses/by_page/${id}`);
+      const res = await fetch(`https://api.quran.com/api/v4/quran/verses/uthmani?page_number=${id}`);
       const data = await res.json();
       return data.verses;
     } catch (error) {
@@ -34,6 +34,17 @@ export const QuranProvider = ({ children }) => {
       return null;
     }
   };
+
+  const fetchJuzById = async (id) => {
+    try {
+      const res = await fetch(`https://api.quran.com/api/v4/quran/verses/uthmani?juz_number=${id}`);
+      const data = await res.json();
+      return data.verses;
+    } catch(error) {
+      console.error("Failed to fetch Juz by ID :", error);
+      return null;
+    }
+  }
   
   const fetchAudioByVerseKey = async (verseKey) => {  
     try {
@@ -53,7 +64,7 @@ export const QuranProvider = ({ children }) => {
         const fullAudioUrl = audioUrl.startsWith('//') ? 'https:' + audioUrl : audioUrl;
         const audio = new Audio(fullAudioUrl);
         const surahId = verseKey.split(':')[0];     
-      // Filter hanya ayat dalam surah yang sama
+  
       const versesInSurah = verseList.filter(v => v.verse_key.startsWith(`${surahId}:`));
         audio.addEventListener('play', () => {
           setIsPlaying(true);
@@ -151,7 +162,7 @@ export const QuranProvider = ({ children }) => {
   }, []);
 
   return (
-    <QuranContext.Provider value={{ surahList, loading, verseList, juzList, translation, fetchSurahById, fetchAudioByVerseKey, fetchPageById, isPlaying, currentPlayingVerse }}>
+    <QuranContext.Provider value={{ surahList, loading, verseList, juzList, translation, fetchSurahById, fetchJuzById, fetchAudioByVerseKey, fetchPageById, isPlaying, currentPlayingVerse }}>
       {children}
     </QuranContext.Provider>
   );

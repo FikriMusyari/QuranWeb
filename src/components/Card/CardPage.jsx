@@ -9,7 +9,9 @@ function CardPage() {
     id: i + 1,
     page: i + 1,
   }));
-
+  const handleClick = (pageIdCard) => {
+    navigate(`/page/${pageIdCard}`);
+  };
   
 
   return (
